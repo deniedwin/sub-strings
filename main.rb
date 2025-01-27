@@ -8,7 +8,11 @@ def substrings(my_word, dict)
   word_instances = ""
   while word_index != my_word.length
     word_instances =  my_word[word_index..my_word.length]
-    puts dict.select {|word| word == word_instances}
+    matches = dict.select {|word| word == word_instances}
+    matches.reduce(Hash.new(0)) do |result, word|
+      result[word] += 1
+      puts result
+    end
     word_index += 1
   end
 end
