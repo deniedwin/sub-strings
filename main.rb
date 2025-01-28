@@ -21,7 +21,15 @@ def substrings(my_word, dict)
   end
 end
 
+def nest_string(str)
+  str.split("").each do |lw|
+    puts lw
+  end
+end
+
 dictionary = ["below","down","go","going","horn","how","howdy",
 "it","i","low","own","part","partner","sit"]
 
-substrings("below", dictionary)
+# substrings("below", dictionary)
+
+nest_string("below")
