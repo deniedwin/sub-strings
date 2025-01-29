@@ -8,45 +8,18 @@
 # "it" => 2, "i" => 3, "own" => 1, "part" => 1, "partner" => 1, "sit" => 1 }
 
 def substrings(my_word, dict)
-  word_index = 0
-  word_instances = ""
-  (0...str.length).each do |i|
-    (i...str.length).each do |j|
-      word_instances =  str[i..j]
-      matches = dict.select {|word| word == word_instances}
-      matches.reduce(Hash.new(0)) do |result, word|
-        result[word] += 1
-        puts result
-      end
+  my_word = my_word.downcase
+  result = Hash.new(0)
+  (0...my_word.length).each do |i|
+    (i...my_word.length).each do |j|
+      word_instances =  my_word[i..j]
+      result[word_instances] += 1 if dict.include?(word_instances)
     end
   end
-  # matches = dict.select {|word| word == word_instances}
-  # matches.reduce(Hash.new(0)) do |result, word|
-  #   result[word] += 1
-  #   puts result
-  # end
+  puts result
 end
-
-# def nest_string(str)
-#   for i in (0...str.length)
-#     for j in (i...str.length)
-#       puts str[i..j], " "
-#     end
-#   end
-# end
-
-def nest_string(str)
-  (0...str.length).each do |i|
-    (i...str.length).each do |j|
-      puts str[i..j], " "
-    end
-  end
-end
-
 
 dictionary = ["below","down","go","going","horn","how","howdy",
 "it","i","low","own","part","partner","sit"]
 
-# substrings("below", dictionary)
-
-nest_string("below")
+substrings("Howdy partner, sit down! How's it going?", dictionary)
