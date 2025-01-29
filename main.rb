@@ -23,7 +23,9 @@ end
 
 def nest_string(str)
   for i in (0...str.length)
-    print str[0..i], " "
+    for j in (i...str.length)
+      puts str[i..j], " "
+    end
   end
 end
 
