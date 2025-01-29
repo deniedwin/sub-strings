@@ -10,24 +10,39 @@
 def substrings(my_word, dict)
   word_index = 0
   word_instances = ""
-  while word_index != my_word.length
-    word_instances =  my_word[word_index..my_word.length]
-    matches = dict.select {|word| word == word_instances}
-    matches.reduce(Hash.new(0)) do |result, word|
-      result[word] += 1
-      puts result
+  (0...str.length).each do |i|
+    (i...str.length).each do |j|
+      word_instances =  str[i..j]
+      matches = dict.select {|word| word == word_instances}
+      matches.reduce(Hash.new(0)) do |result, word|
+        result[word] += 1
+        puts result
+      end
     end
-    word_index += 1
   end
+  # matches = dict.select {|word| word == word_instances}
+  # matches.reduce(Hash.new(0)) do |result, word|
+  #   result[word] += 1
+  #   puts result
+  # end
 end
 
+# def nest_string(str)
+#   for i in (0...str.length)
+#     for j in (i...str.length)
+#       puts str[i..j], " "
+#     end
+#   end
+# end
+
 def nest_string(str)
-  for i in (0...str.length)
-    for j in (i...str.length)
+  (0...str.length).each do |i|
+    (i...str.length).each do |j|
       puts str[i..j], " "
     end
   end
 end
+
 
 dictionary = ["below","down","go","going","horn","how","howdy",
 "it","i","low","own","part","partner","sit"]
