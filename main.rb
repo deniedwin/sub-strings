@@ -22,8 +22,8 @@ def substrings(my_word, dict)
 end
 
 def nest_string(str)
-  for i in 0..str.length
-    puts str.each {|rw|}
+  for i in (0...str.length)
+    print str[0..i], " "
   end
 end
 
